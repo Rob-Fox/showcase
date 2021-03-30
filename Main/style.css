@@ -2,3 +2,21 @@
     height: 32px;
     /* float: left; */
 }
+.project{
+    height: 500px;
+    width:90%
+}
+.project#lidar{
+    /* background-color: aqua; */
+    background-image: linear-gradient(rgba(0, 255, 255, 0), rgba(0, 255, 255, 1), rgba(0, 255, 255, 0));
+}
+.project#map{
+    /* background-color: skyblue; */
+    /* background-image: linear-gradient(rgba(135, 206, 235, 0), rgba(135, 206, 235, 1), rgba(135, 206, 235, 0)); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+.project#scrum{
+    /* background-color: turquoise; */
+    /* background-image: linear-gradient(rgba(64, 224, 208, 0), rgba(64, 224, 208, 1), rgba(64, 224, 208, 0)); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
