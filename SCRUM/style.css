@@ -1,0 +1,67 @@
+body{
+    height: max-content
+}
+.wrapper{
+    display: flex;
+    height: max-content;
+}
+.column{
+    width: 18%;
+    height:90vh;
+    position:relative;
+}
+#backlog{
+    background-color: black;
+    order: 1;
+}
+#backlog > h2{
+    color: black;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+#to-do{
+    background-color: yellow;
+    order: 2;
+}
+#to-do > h2{
+    color: yellow;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+#blocked{
+    background-color: red;
+    order: 3;
+}
+#blocked > h2{
+    color: red;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+#in-progress{
+    background-color: blue;
+    order: 4;
+}
+#in-progress > h2{
+    color: blue;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+#complete{
+    background-color: green;
+    order: 5;
+}
+#complete > h2{
+    color: green;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+.add{
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.task{
+    color:black;
+    background-color: whitesmoke;
+    margin: 10px;;
+}
