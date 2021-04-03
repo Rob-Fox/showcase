@@ -3,15 +3,15 @@ function on_drag_start(e){
     e.dataTransfer.setData('text/plain', e.target.id);
 
     e.currentTarget.style.backgroundColor = 'white';
+    e.currentTarget.style.border = 'thick solid aqua';
 }
 function on_dragover(e){
     e.preventDefault();
 }
 function on_drop(e){
     const id = e.dataTransfer.getData('text');
-    console.log(e.dataTransfer);
     const draggableElement = document.getElementById(id);
-    console.log(draggableElement);
+    draggableElement.style.border = '';
     const dropzone = e.target;
     dropzone.appendChild(draggableElement);
     e.dataTransfer.clearData();
