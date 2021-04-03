@@ -10,21 +10,21 @@
 </head>
 <body>
     <div class='wrapper'>
-        <div class='column' id='backlog'>
+        <div class='column' id='backlog' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Backlog</h2>
             <span class='add' id='add_backlog'>Add</span>
         </div>
-        <div class='column' id='to-do'>
+        <div class='column' id='to-do' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>To-Do</h2>
             <!-- <span class='add' id='add_to-do'>Add</span> -->
         </div>
-        <div class='column' id='blocked'>
+        <div class='column' id='blocked' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Blocked</h2>
         </div>
-        <div class='column' id='in-progress'>
+        <div class='column' id='in-progress' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>In Progress</h2>
         </div>
-        <div class='column' id='complete'>
+        <div class='column' id='complete' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Complete</h2>
         </div>
     </div>
