@@ -51,6 +51,9 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=255)
     username = models.CharField(max_length=25)
 
+    def __repr__(self):
+        return 'name: {}, username: {}'.format(self.name, self.username)
+
 class Task(models.Model):
     status = models.CharField(max_length=12)
     creationDate = models.DateTimeField(auto_created=True, auto_now_add=True)
