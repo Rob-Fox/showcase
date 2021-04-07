@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href='style.css' type='text/css'>
-    <script src='script.js'></script>
+    <link rel='stylesheet' href='{% static "SCRUM/style.css" %}' type='text/css'>
+    <script src='{% static "SCRUM/script.js" %}'></script>
 </head>
 <body>
     <div class='wrapper'>
         <div class='column' id='backlog' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Backlog</h2>
             {% for task in taskList %}
-                <div><h3>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
+                <div class='task' draggable="true" id={{task.name}} ondragstart="on_drag_start(event);"><h3>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
             {% endfor %}
             <span class='add' id='add_backlog'>Add</span>
         </div>
         <div class='column' id='to-do' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>To-Do</h2>
-            <!-- <span class='add' id='add_to-do'>Add</span> -->
         </div>
         <div class='column' id='blocked' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Blocked</h2>
