@@ -14,7 +14,7 @@
         <div class='column' id='backlog' ondragover="on_dragover(event);" ondrop="on_drop(event);">
             <h2>Backlog</h2>
             {% for task in taskList %}
-                <div class='task' draggable="true" id={{task.name}} ondragstart="on_drag_start(event);"><h3>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
+                <div class='task' draggable="true" id={{task.id}} ondragstart="on_drag_start(event);"><h3 id={{task.name}}>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
             {% endfor %}
             <span class='add' id='add_backlog'>Add</span>
         </div>
