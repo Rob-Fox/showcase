@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('login_reg.urls')),
+    path('reg', include('login_reg.urls')),
+    path('login', include('login_reg.urls')),
+    path('success', include('login_reg.urls')),
     path('SCRUM/', include('SCRUM.urls')),
     path('admin/', admin.site.urls),
 ]

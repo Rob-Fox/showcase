@@ -48,7 +48,7 @@ class TaskConsumer(WebsocketConsumer):
         else:
             #new task
             name = dataJSON['name']
-            creator = User.objects.get(id=1)
+            creator = User.objects.get(id=self.scope['session']['user'])
             newTask = Task.objects.create(status='backlog', name=name, creator=creator)
             newTask.save()
             print(newTask.id)
