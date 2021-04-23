@@ -43,9 +43,10 @@ wSocket.onclose = function(e){
 
 window.onload = function(){
     var list = document.getElementsByClassName('add');
+    // var project = list.getAttribute(id);
 
     
-    function add_item(id, button){
+    function add_item(id, button, project){
             let item = document.createElement("textarea");
             button.style.display = "none";
             item.setAttribute('id', "t-area")
@@ -69,19 +70,21 @@ window.onload = function(){
                         'column': backlog,
                         'name': input.value,
                         'new': true,
+                        'project': project,
                     }))
-                    var rec = wSocket.onmessage()
-                    div.setAttribute('id', rec);
+                    // var rec = wSocket.onmessage()
+                    // div.setAttribute('id', rec);
 
 
-                    alert(rec)
+                    // alert(rec)
                 }
             })
     }
     for(var i = 0; i < list.length; i++){
         let item = list[i];
+        let project = item.getAttribute('id');
         item.onclick = function(){
-            flag = add_item(item.parentElement.id, item);
+            flag = add_item(item.parentElement.id, item, project);
         }
     }
 }

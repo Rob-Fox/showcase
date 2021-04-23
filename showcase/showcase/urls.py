@@ -21,6 +21,7 @@ urlpatterns = [
     path('reg', include('login_reg.urls')),
     path('login', include('login_reg.urls')),
     path('success', include('login_reg.urls')),
-    path('SCRUM/', include('SCRUM.urls')),
+    path('SCRUM', include('SCRUM.urls')),
+    path(r'^SCRUM/project/(?P<number>\d+)$',include('SCRUM.urls')),
     path('admin/', admin.site.urls),
 ]

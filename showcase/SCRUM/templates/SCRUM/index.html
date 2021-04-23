@@ -11,24 +11,18 @@
 </head>
 <body>
     <div class='wrapper'>
-        <div class='column' id='backlog' ondragover="on_dragover(event);" ondrop="on_drop(event);">
-            <h2>Backlog</h2>
-            {% for task in taskList %}
-                <div class='task' draggable="true" id={{task.id}} ondragstart="on_drag_start(event);"><h3 id={{task.name}}>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
+        <div class='column' id='my_projects'>
+            <h2>My Projects:</h2>
+            {% for project in projectList %}
+                <div class='project' id={{project.id}}><a id={{project.name}} href='SCRUM/project/{{project.id}}'>{{project.name}}</a><p>{% for member in project.members.all %} {{member.name}}{% endfor %}</p></div>
             {% endfor %}
             <span class='add' id='add_backlog'>Add</span>
         </div>
-        <div class='column' id='to-do' ondragover="on_dragover(event);" ondrop="on_drop(event);">
-            <h2>To-Do</h2>
-        </div>
-        <div class='column' id='blocked' ondragover="on_dragover(event);" ondrop="on_drop(event);">
-            <h2>Blocked</h2>
-        </div>
-        <div class='column' id='in-progress' ondragover="on_dragover(event);" ondrop="on_drop(event);">
-            <h2>In Progress</h2>
-        </div>
-        <div class='column' id='complete' ondragover="on_dragover(event);" ondrop="on_drop(event);">
-            <h2>Complete</h2>
+        <div class='column' id='others_projects'>
+            <h2>Projects I am in:</h2>
+            {% for other in participating %}
+                <div class='project' id={{other.id}}><h3 id={{other.name}}>{{other.name}}</h3><p>Lead by: {{other.head.username}}</p></div>
+            {% endfor %}
         </div>
     </div>
 </body>

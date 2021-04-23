@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='{% static "SCRUM/style.css" %}' type='text/css'>
+    <script src='{% static "SCRUM/script.js" %}'></script>
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='column' id='backlog' ondragover="on_dragover(event);" ondrop="on_drop(event);">
+            <h2>Backlog</h2>
+            {% for task in taskList %}
+                <div class='task' draggable="true" id={{task.id}} ondragstart="on_drag_start(event);"><h3 id={{task.name}}>{{task.name}}</h3><p>{{task.creator.username}}</p></div>
+            {% endfor %}
+            <span class='add' id='{{project.id}}'>Add</span>
+        </div>
+        <div class='column' id='to-do' ondragover="on_dragover(event);" ondrop="on_drop(event);">
+            <h2>To-Do</h2>
+        </div>
+        <div class='column' id='blocked' ondragover="on_dragover(event);" ondrop="on_drop(event);">
+            <h2>Blocked</h2>
+        </div>
+        <div class='column' id='in-progress' ondragover="on_dragover(event);" ondrop="on_drop(event);">
+            <h2>In Progress</h2>
+        </div>
+        <div class='column' id='complete' ondragover="on_dragover(event);" ondrop="on_drop(event);">
+            <h2>Complete</h2>
+        </div>
+    </div>
+    <div>
+        <ul>
+            {% for member in teamMembers.all %}
+                <li>{{member.name}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

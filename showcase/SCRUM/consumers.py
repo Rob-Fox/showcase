@@ -1,7 +1,7 @@
 # from channels.consumer import SyncConsumer
 from channels.generic.websocket import WebsocketConsumer
 import json
-from SCRUM.models import Task, User, TeamMember
+from SCRUM.models import Task, User, Project#, TeamMember
 # from asgiref.sync import async_to_sync
 
 # class TaskConsumer(SyncConsumer):
@@ -28,7 +28,7 @@ from SCRUM.models import Task, User, TeamMember
 
 class TaskConsumer(WebsocketConsumer):
     def connect(self):
-        print(self)
+        # print(self)
         self.accept()
     
     
@@ -38,10 +38,10 @@ class TaskConsumer(WebsocketConsumer):
             #existing task
             column = dataJSON['column']
             task = dataJSON['task']
-            print('column: ')
-            print(column)
-            print('Task: ')
-            print(task)
+            # print('column: ')
+            # print(column)
+            # print('Task: ')
+            # print(task)
             self.send(text_data=json.dumps({
                 'column':column
             }))
@@ -49,7 +49,8 @@ class TaskConsumer(WebsocketConsumer):
             #new task
             name = dataJSON['name']
             creator = User.objects.get(id=self.scope['session']['user'])
-            newTask = Task.objects.create(status='backlog', name=name, creator=creator)
+            project = Project.objects.get(id=dataJSON['project'])
+            newTask = Task.objects.create(status='backlog', name=name, creator=creator, project=project)
             newTask.save()
             print(newTask.id)
             self.send(text_data=json.dumps({
