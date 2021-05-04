@@ -44,6 +44,9 @@ class User(models.Model):
 
     objects = UserManager()
 
+    def name_array(self):
+        return self.name.split(' ')
+
     # When asked for a representation of itself what is returned
     def __repr__(self):
         return 'name: {}, username {}, password {}'.format(self.name, self.username, self.password)

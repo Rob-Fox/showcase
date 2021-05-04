@@ -10,6 +10,7 @@ def index(req):
     if req.session.get('user') == None or req.session.get('user') == -1:
         return redirect('login_reg:index') 
     context = {
+        'user': User.objects.get(id=req.session.get('user')),
         'projectList': Project.objects.filter(head=User.objects.get(id=req.session['user'])),
         'participating': Project.objects.filter(members=req.session['user']),
     }
